@@ -6,7 +6,14 @@ export const Administrar = () => {
         <>
             <Navbar />
 
+
+
+                   <div>
+                   <button type="button" class="btn btn-success btnAgregar"> Agregar Producto </button>
+
+                   </div>
             <div className="container tableConteiner">
+
 
                 <table className='table table-hover tableProductos'>
 
@@ -113,6 +120,8 @@ export const Administrar = () => {
 
 
                 </table>
+
+
 
             </div>
 

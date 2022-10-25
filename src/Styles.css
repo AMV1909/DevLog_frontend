@@ -122,6 +122,13 @@
  
 }
 
+.btnAgregar{
+  display: flex;
+  margin: auto;
+  margin-top: 10px;
+  
+}
+
 .btnDetalles{
   margin-top: 20px;
   margin-left: 65px;
