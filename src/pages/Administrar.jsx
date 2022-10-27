@@ -27,24 +27,31 @@ export const Administrar = () => {
 
                                 <form>
                                     <div class="mb-3">
-                                        <label htmlFor="exampleInputEmail1" class="form-label">Numero de Tarjeta</label>
+                                        <label htmlFor="exampleInputEmail1" class="form-label">Nombre Producto</label>
                                         <input type="Numero" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                     </div>
 
+                                    <div class="mb-3">
+                                        <label htmlFor="CantidadProduct" class="form-label" >Precio</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control" aria-label="Cantidad" />
+
+                                        </div>
+
+                                    </div>
+
+
 
                                     <div class="mb-3">
-                                        <label htmlFor="exampleInputPropietario1" class="form-label">Nombre del Propietario</label>
-                                        <input type="Numero" class="form-control" id="exampleInputPropietario1" aria-describedby="emailHelp" />
-                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                    <label for="startDate">Cantidad:</label>
+                                    <div className='cantidadProd' >
+                                        <input type="number" className='cantidadProd' id="CantProd" name="tentacles" min="0"/>
                                     </div>
-
-                                    <div>
-                                        <label for="startDate">Fecha:</label>
-                                        <input type="month" name="mes"  min="2020-01" max="" value="2022-01" />
-
                                     </div>
                                    
+
                                 </form>
                             </div>
                             <div class="modal-footer">
