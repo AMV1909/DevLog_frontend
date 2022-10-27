@@ -242,3 +242,37 @@ body{
 .divHome{
   display: flex;
 }
+
+.imgMaps{
+  width: auto;
+  margin: auto;
+  justify-content: center;
+}
+
+.imgMaps1{
+  width: auto;
+  margin: auto;
+  margin-top: 100px;
+
+}
+
+.pedidos{
+  margin: auto;
+}
+
+.inputp{
+  margin: auto;
+}
+
+.mapouter{
+  position:relative;
+  text-align:right;
+  height:500px;
+  width:600px;
+}
+.gmap_canvas {
+  overflow:hidden;
+  background:none!important;
+  height:500px;
+  width:600px;
+}
