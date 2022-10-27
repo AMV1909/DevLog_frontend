@@ -6,6 +6,7 @@ import { Register } from './pages/Register';
 import { Detalles } from './pages/Detalles';
 import { Carrito } from './pages/Carrito';
 import { Administrar } from './pages/Administrar';
+import { Monitorear } from './pages/Monitorear';
  export const App = () => {
   return (
 
@@ -19,6 +20,8 @@ import { Administrar } from './pages/Administrar';
       <Route  exact path="/Detalles" element={<Detalles/>} />
       <Route  exact path="/Carrito" element={<Carrito/>} />
       <Route  exact path="/Administrar" element={<Administrar/>} />
+      <Route  exact path="/Monitorear" element={<Monitorear/>} />
+
     </Routes>
     </Router>
     
