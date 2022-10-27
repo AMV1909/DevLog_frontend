@@ -14,15 +14,14 @@ import { Monitorear } from './pages/Monitorear';
       
       
       <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route  exact path="/Login" element={<Login />} />
-      <Route  exact path="/Register" element={<Register/>} />
-      <Route  exact path="/Detalles" element={<Detalles/>} />
-      <Route  exact path="/Carrito" element={<Carrito/>} />
-      <Route  exact path="/Administrar" element={<Administrar/>} />
-      <Route  exact path="/Monitorear" element={<Monitorear/>} />
-
-    </Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/Login" element={<Login />} />
+      <Route path="/Register" element={<Register/>} />
+      <Route path="/Detalles" element={<Detalles/>} />
+      <Route path="/Carrito" element={<Carrito/>} />
+      <Route path="/Administrar" element={<Administrar/>} />
+      <Route path="/Monitorear" element={<Monitorear/>} />
+       </Routes>
     </Router>
     
       
