@@ -1,51 +1,99 @@
 import React from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { registerUser } from '../api/users';
+
 export const Register = () => {
+    const [error, setError] = useState({
+        show: false,
+        text: ""
+    });
+
+    const [formData, setFormData] = useState({
+        name: "",
+        lastname: "",
+        phone: 0,
+        email: "",
+        password: ""
+    })
+
+    const verifyPassword = () => {
+        const pwd1 = document.getElementById("exampleFormPassword1").value;
+        const pwd2 = document.getElementById("exampleFormPassword2").value;
+
+        return pwd1 === pwd2;
+    }
+
+    addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        if (verifyPassword()) {
+            setError(...error, { show: false });
+
+            await registerUser()
+                .then((data) => {
+                    if (data.status == 200) {
+                        alert(data);
+                        window.location.href = "/login";
+                    } else {
+                        if (data.errorEmail) {
+                            setError(...error, { show: true, text: data.errorEmail });
+                        } else {
+                            setError(...error, { show: true, text: data.error });
+                        }
+                    }
+                })
+        } else {
+            setError(...error, { show: true, text: "Las contraseñas deben ser iguales" });
+        }
+    })
+
     return (
         <>
             <div className='container conterReg' >
                 <div className='card cardReg'>
                     <h1 className="titleText">Sing Up</h1>
                     <div className='card-body'>
-                        <form className="px-4 py-3">
+                        <form id='form' className="px-4 py-3">
 
 
                             <div className='row'>
                                 <div className='col' >
-                                    <label htmlFor="exampleDropdownFormName1" className="form-label">Nombres</label>
-                                    <input type="name" className="form-control inputRegistro" id="exampleDropdownFormName1" placeholder="Nombres" />
+                                    <label htmlFor="exampleFormName" className="form-label">Nombres</label>
+                                    <input type="name" className="form-control inputRegistro" id="exampleFormName" placeholder="Nombres" name='name' />
                                 </div>
 
                                 <div className='col'>
-                                    <label htmlFor="exampleDropdownFormName2" className="form-label inputRegistro2">Apellidos</label>
-                                    <input type="lastname" className="form-control inputRegistro2" id="exampleDropdownFormName2" placeholder="Apellidos" />
+                                    <label htmlFor="exampleFormLastname" className="form-label inputRegistro2">Apellidos</label>
+                                    <input type="lastname" className="form-control inputRegistro2" id="exampleFormLastname" placeholder="Apellidos" name='lastname' />
                                 </div>
                             </div>
                             <br />
                             <div className="mb-3">
-                                <label htmlFor="exampleDropdownFormNumber" className="form-label ">Número</label>
-                                <input type="email" className="form-control" id="exampleDropdownFormEmail1" placeholder="Número" />
+                                <label htmlFor="exampleFormNumber" className="form-label ">Número</label>
+                                <input type="number" className="form-control" id="exampleFormNumber" placeholder="Número" name='phone' />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="exampleDropdownFormEmail1" className="form-label ">Email</label>
-                                <input type="email" className="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" />
+                                <label htmlFor="exampleDropdownFormEmail" className="form-label ">Email</label>
+                                <input type="email" className="form-control" id="exampleDropdownFormEmail" placeholder="email@example.com" name='email' />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="exampleDropdownFormPassword1" className="form-label">Contraseña</label>
-                                <input type="password" className="form-control" id="exampleDropdownFormPassword1" placeholder="Password" />
+                                <label htmlFor="exampleFormPassword1" className="form-label">Contraseña</label>
+                                <input type="password" className="form-control" id="exampleFormPassword1" placeholder="Password" name='password' />
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="exampleDropdownFormPassword1" className="form-label">Repetir Contraseña</label>
-                                <input type="password" className="form-control" id="exampleDropdownFormPassword1" placeholder="Password" />
+                                <label htmlFor="exampleFormPassword2" className="form-label">Repetir Contraseña</label>
+                                <input type="password" className="form-control" id="exampleFormPassword2" placeholder="Password" />
                             </div>
-                            
 
-                            <Link className="btn btn-outline colorBtnCard" to="/">Registrarse</Link>
+                            {error ? <p className='text-danger'>{error.text}</p> : null}
+
+                            <button type='submit' className='btn btn-outline colorBtnCard'>Registrarse</button>
 
                         </form>
-                        
-                       
+
+
                     </div>
 
                 </div>
