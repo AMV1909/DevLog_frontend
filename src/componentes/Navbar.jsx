@@ -32,7 +32,6 @@ export const Navbar = () => {
           <i className="bi bi-person-fill IconNav"> <a class="texto"></a> </i>
           </a>
           <ul className="dropdown-menu a" aria-labelledby="navbarDropdownMenuLink">
-            <li><a className="dropdown-item texto" href="#">Acerca de</a></li>
             <li> <Link className="dropdown-item texto " to="/Login"> Cerrar Sesion </Link>   </li>
           </ul>
           </li>

@@ -29,7 +29,11 @@ export const Administrar = () => {
                                     <div class="mb-3">
                                         <label htmlFor="exampleInputEmail1" class="form-label">Nombre Producto</label>
                                         <input type="Numero" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                        <div class="invalid-feedback">
+                                            Valor Obligatorio
+                                        </div>
                                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
                                     </div>
 
                                     <div class="mb-3">
@@ -45,12 +49,13 @@ export const Administrar = () => {
 
 
                                     <div class="mb-3">
-                                    <label for="startDate">Cantidad:</label>
-                                    <div className='cantidadProd' >
-                                        <input type="number" className='cantidadProd' id="CantProd" name="tentacles" min="0"/>
+                                        <label for="startDate">Cantidad:</label>
+                                        <div className='cantidadProd' >
+                                            <input type="number" className='cantidadProd' id="CantProd" name="tentacles" min="0" />
+                                        </div>
+                                        <div id="emailHelp" class="form-text">Tambien puedes utilizar el scroll para elegir la cantidad</div>
                                     </div>
-                                    </div>
-                                   
+
 
                                 </form>
                             </div>
