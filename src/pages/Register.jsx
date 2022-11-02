@@ -28,7 +28,7 @@ export const Register = () => {
         e.preventDefault();
 
         if (verifyPassword()) {
-            setError(...error, { show: false });
+            setError({ ...error, show: false });
 
             await registerUser()
                 .then((data) => {
@@ -37,14 +37,14 @@ export const Register = () => {
                         window.location.href = "/login";
                     } else {
                         if (data.errorEmail) {
-                            setError(...error, { show: true, text: data.errorEmail });
+                            setError({ ...error, show: true, text: data.errorEmail });
                         } else {
-                            setError(...error, { show: true, text: data.error });
+                            setError({ ...error, show: true, text: data.error });
                         }
                     }
-                })
+                }).catch((err) => setError({ ...error, show: true, text: err }));
         } else {
-            setError(...error, { show: true, text: "Las contraseñas deben ser iguales" });
+            setError({ ...error, show: true, text: "Las contraseñas deben ser iguales" });
         }
     })
 
@@ -60,31 +60,31 @@ export const Register = () => {
                             <div className='row'>
                                 <div className='col' >
                                     <label htmlFor="exampleFormName" className="form-label">Nombres</label>
-                                    <input type="name" className="form-control inputRegistro" id="exampleFormName" placeholder="Nombres" name='name' />
+                                    <input type="name" className="form-control inputRegistro" id="exampleFormName" placeholder="Nombres" name='name' required />
                                 </div>
 
                                 <div className='col'>
                                     <label htmlFor="exampleFormLastname" className="form-label inputRegistro2">Apellidos</label>
-                                    <input type="lastname" className="form-control inputRegistro2" id="exampleFormLastname" placeholder="Apellidos" name='lastname' />
+                                    <input type="lastname" className="form-control inputRegistro2" id="exampleFormLastname" placeholder="Apellidos" name='lastname' required />
                                 </div>
                             </div>
                             <br />
                             <div className="mb-3">
                                 <label htmlFor="exampleFormNumber" className="form-label ">Número</label>
-                                <input type="number" className="form-control" id="exampleFormNumber" placeholder="Número" name='phone' />
+                                <input type="number" className="form-control" id="exampleFormNumber" placeholder="Número" name='phone' required />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleDropdownFormEmail" className="form-label ">Email</label>
-                                <input type="email" className="form-control" id="exampleDropdownFormEmail" placeholder="email@example.com" name='email' />
+                                <input type="email" className="form-control" id="exampleDropdownFormEmail" placeholder="email@example.com" name='email' required />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleFormPassword1" className="form-label">Contraseña</label>
-                                <input type="password" className="form-control" id="exampleFormPassword1" placeholder="Password" name='password' />
+                                <input type="password" className="form-control" id="exampleFormPassword1" placeholder="Password" name='password' required />
                             </div>
 
                             <div className="mb-3">
                                 <label htmlFor="exampleFormPassword2" className="form-label">Repetir Contraseña</label>
-                                <input type="password" className="form-control" id="exampleFormPassword2" placeholder="Password" />
+                                <input type="password" className="form-control" id="exampleFormPassword2" placeholder="Password" required />
                             </div>
 
                             {error ? <p className='text-danger'>{error.text}</p> : null}
