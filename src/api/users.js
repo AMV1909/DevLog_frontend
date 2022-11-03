@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const registerUser = async () => {
-    return await axios.post("http://157.245.95.77:4000/users");
+export const registerUser = async (formData) => {
+    return await axios.post("http://localhost:4000/users", formData);
 }
