@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { registerUser } from '../api/users';
+import { registerUser, getUsers } from '../api/users';
 
 export const Register = () => {
+
     const [error, setError] = useState({
         show: false,
         text: ""
@@ -24,29 +24,27 @@ export const Register = () => {
         return pwd1 === pwd2;
     }
 
-    addEventListener("submit", async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (verifyPassword()) {
-            setError({ ...error, show: false });
-
-            await registerUser(formData)
-                .then((data) => {
-                    if (data.status == 200) {
-                        alert(data);
-                        window.location.href = "/login";
-                    } else {
-                        if (data.errorEmail) {
-                            setError({ ...error, show: true, text: data.errorEmail });
-                        } else {
-                            setError({ ...error, show: true, text: data.error });
-                        }
-                    }
-                }).catch((err) => setError({ ...error, show: true, text: err }));
+            const response = await registerUser(formData);
+            if (response.message) {
+                alert("Usuario registrado correctamente");
+                window.location.href = "/login";
+            } else {
+                setError({
+                    show: true,
+                    text: response.err
+                })
+            }
         } else {
-            setError({ ...error, show: true, text: "Las contraseñas deben ser iguales" });
+            setError({
+                show: true,
+                text: "Las contraseñas no coinciden"
+            })
         }
-    })
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -59,7 +57,7 @@ export const Register = () => {
                 <div className='card cardReg'>
                     <h1 className="titleText">Sing Up</h1>
                     <div className='card-body'>
-                        <form id='form' className="px-4 py-3">
+                        <form className="px-4 py-3" onSubmit={handleSubmit}>
 
 
                             <div className='row'>
@@ -92,7 +90,7 @@ export const Register = () => {
                                 <input type="password" className="form-control" id="exampleFormPassword2" placeholder="Password" onChange={handleChange} required />
                             </div>
 
-                            {error ? <p className='text-danger'>{error.text}</p> : null}
+                            {error.show ? <p className='text-danger text-center'>{error.text}</p> : null}
 
                             <button type='submit' className='btn btn-outline colorBtnCard'>Registrarse</button>
 
