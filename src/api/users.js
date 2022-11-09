@@ -1,9 +1,11 @@
-export const getUsers = async () => {
-    return await fetch("http://157.245.95.77:4000/users")
+import { backend } from "./backend"
+
+export const getUsersRequest = async () => {
+    return await fetch(`${backend}/users`)
 };
 
-export const registerUser = async (formData) => {
-    return await fetch("http://157.245.95.77:4000/users", {
+export const registerUserRequest = async (formData) => {
+    return await fetch(`${backend}/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

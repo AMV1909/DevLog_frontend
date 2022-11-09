@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { registerUser, getUsers } from '../api/users';
+import { registerUserRequest } from '../api/users';
 
 export const Register = () => {
 
@@ -28,7 +28,7 @@ export const Register = () => {
         e.preventDefault();
 
         if (verifyPassword()) {
-            const response = await registerUser(formData);
+            const response = await registerUserRequest(formData);
             if (response.message) {
                 alert("Usuario registrado correctamente");
                 window.location.href = "/login";
@@ -37,6 +37,13 @@ export const Register = () => {
                     show: true,
                     text: response.err
                 })
+
+                setTimeout(() => {
+                    setError({
+                        show: false,
+                        text: ""
+                    })
+                }, 5000);
             }
         } else {
             setError({
