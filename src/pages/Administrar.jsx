@@ -56,6 +56,10 @@ export const Administrar = () => {
                                         <div id="emailHelp" class="form-text">Tambien puedes utilizar el scroll para elegir la cantidad</div>
                                     </div>
 
+                                    <div class="mb-3">
+                                        <label htmlFor="ImagenProd">Imagen del Producto</label>
+                                        <input class="form-control" type="file" id="ImagenProd" />
+                                    </div>
 
                                 </form>
                             </div>

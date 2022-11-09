@@ -97,9 +97,20 @@ export const Register = () => {
                                 <input type="password" className="form-control" id="exampleFormPassword2" placeholder="Password" onChange={handleChange} required />
                             </div>
 
+                            <div className="mb-3">
+                            <input class="form-check-input" type="checkbox" value="" ></input>  
+                            <label className="form-check-label" for="flexCheckDefault">Ser vendedor</label>
+                            </div>
+
                             {error.show ? <p className='text-danger text-center'>{error.text}</p> : null}
 
                             <button type='submit' className='btn btn-outline colorBtnCard'>Registrarse</button>
+
+                            <button type='submit' className='btn btn-outline colorBtnCard'>Volver</button>
+
+
+
+
 
                         </form>
 
