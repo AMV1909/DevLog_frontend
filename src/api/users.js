@@ -15,8 +15,6 @@ export const registerUserRequest = async (formData) => {
 };
 
 export const getTypeUserRequest = async () => {
-    console.log(localStorage.getItem("Authorization"));
-
     return await fetch(`${backend}/users/type`, {
         method: "GET",
         headers: {

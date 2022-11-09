@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { registerUserRequest } from '../api/users';
 
 export const Register = () => {
@@ -14,7 +15,8 @@ export const Register = () => {
         lastname: "",
         phone: 0,
         email: "",
-        password: ""
+        password: "",
+        type: false
     })
 
     const verifyPassword = () => {
@@ -55,7 +57,7 @@ export const Register = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(() => ({ ...formData, [name]: value }));
+        name === "type" ? setFormData({ ...formData, [name]: !formData.type }) : setFormData({ ...formData, [name]: value });
     }
 
     return (
@@ -94,24 +96,19 @@ export const Register = () => {
 
                             <div className="mb-3">
                                 <label htmlFor="exampleFormPassword2" className="form-label">Repetir Contraseña</label>
-                                <input type="password" className="form-control" id="exampleFormPassword2" placeholder="Password" onChange={handleChange} required />
+                                <input type="password" className="form-control" id="exampleFormPassword2" placeholder="Password" required />
                             </div>
 
-                            <div className="mb-3">
-                            <input class="form-check-input" type="checkbox" value="" ></input>  
-                            <label className="form-check-label" for="flexCheckDefault">Ser vendedor</label>
+                            <div className='mb-3'>
+                                <input class="form-check-input" type="checkbox" name="type" onChange={handleChange} ></input>
+                                <label className="form-check-label mx-2" for="flexCheckDefault" >Ser vendedor</label>
                             </div>
 
                             {error.show ? <p className='text-danger text-center'>{error.text}</p> : null}
 
                             <button type='submit' className='btn btn-outline colorBtnCard'>Registrarse</button>
 
-                            <button type='submit' className='btn btn-outline colorBtnCard'>Volver</button>
-
-
-
-
-
+                            <Link className="dropdown-item mt-3" to="/Login" >Ya tienes cuenta? Inicia Sesión</Link>
                         </form>
 
 

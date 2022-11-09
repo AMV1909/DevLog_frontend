@@ -8,7 +8,6 @@ export const Navbar = () => {
 
   useEffect(() => {
     getTypeUserRequest().then((response) => {
-      console.log(response);
       switch (response) {
         case "admin":
           setTypeUser(true);
@@ -19,7 +18,7 @@ export const Navbar = () => {
         case "user":
           setTypeUser(false);
           break;
-        default:
+        default: window.location.href = "/login";
           break;
       }
     })
