@@ -16,7 +16,7 @@ export const Login = () => {
 
     await loginRequest(email, password).then((response) => {
       if (response.token) {
-        localStorage.setItem("token", response.token);
+        localStorage.setItem("Authorization", response.token);
         window.location.href = "/";
       } else {
         setError({
