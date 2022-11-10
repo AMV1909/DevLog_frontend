@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { Navbar } from '../componentes/Navbar'
+import { getProductsRequest } from '../api/products'
 
 export const Administrar = () => {
+    const [productos, setProductos] = useState([])
+
+    useEffect(() => {
+        getProductsRequest()
+            .then((res) => {
+                setProductos(res)
+            })
+            .catch(() => {
+                window.location.href = "/login"
+            })
+    }, [])
+
     return (
         <>
             <Navbar />
@@ -87,99 +101,23 @@ export const Administrar = () => {
                         </tr>
                     </thead>
 
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Nombre Producto</td>
-                        <td>Precio Productos</td>
-                        <td>Cantidad Producto</td>
-                        <td>
-                            <button className='btn btn-primary '>Editar</button>
-                            <button className='btn btn-danger'>Eliminar</button>
-
-                        </td>
-
-                    </tr>
-
-
+                    {productos.length > 0 ? (
+                        productos.map((producto) => {
+                            <tr>
+                                <td>{producto.name}</td>
+                                <td>{producto.price}</td>
+                                <td>{producto.available}</td>
+                                <td>
+                                    <button className='btn btn-primary '>Editar</button>
+                                    <button className='btn btn-danger'>Eliminar</button>
+                                </td>
+                            </tr>
+                        })
+                    ) : (
+                        <tr>
+                            <td colSpan='4' className='text-center p-2'>No hay productos</td>
+                        </tr>
+                    )}
                 </table>
 
 
