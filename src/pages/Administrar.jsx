@@ -51,6 +51,11 @@ export const Administrar = () => {
                                     </div>
 
                                     <div class="mb-3">
+                                        <label htmlFor="detalles" class="form-label">Descripcion</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label htmlFor="CantidadProduct" class="form-label" >Precio</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">$</span>
@@ -69,6 +74,8 @@ export const Administrar = () => {
                                         </div>
                                         <div id="emailHelp" class="form-text">Tambien puedes utilizar el scroll para elegir la cantidad</div>
                                     </div>
+
+
 
                                     <div class="mb-3">
                                         <label htmlFor="ImagenProd">Imagen del Producto</label>
