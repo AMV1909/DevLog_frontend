@@ -35,7 +35,9 @@ export const Navbar = () => {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
 
-          <Link className="navbar-brand texto" to="/">Devlog</Link>
+          <Link className="navbar-brand texto" to="/">
+            <img  className='logo'  src="./public/Loguito.png" alt="logo" />       
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

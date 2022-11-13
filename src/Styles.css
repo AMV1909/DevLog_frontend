@@ -291,3 +291,11 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+
+.logo{
+  width: 70px;
+  height: 30px;
+  filter: invert(100%);
+   
+}
