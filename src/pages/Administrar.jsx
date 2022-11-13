@@ -51,6 +51,11 @@ export const Administrar = () => {
                                     </div>
 
                                     <div class="mb-3">
+                                        <label htmlFor="detallescorto" class="form-label">Descripcion corta</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label htmlFor="detalles" class="form-label">Descripcion</label>
                                         <textarea class="form-control"></textarea>
                                     </div>
