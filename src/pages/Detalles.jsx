@@ -39,13 +39,13 @@ export const Detalles = () => {
                     </div>
 
                     <div >
-                        <div class="p-3 border bg-light cardDetalles">
+                        <div class="p-3 border bg-light cardDetalles2">
 
                             <h1>Descripcion</h1>
                             <hr />
-
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, architecto cumque rerum quasi quam assumenda eaque officia similique quidem dolor provident possimus quae a, laborum animi? Quidem debitis dolorem modi.
+                            <div className='descrip'>
+                            <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, architecto cumque rerum quasi quam assumenda eaque officia similique quidem dolor provident possimus quae a, laborum animi? Quidem debitis dolorem modi.
                                 Enim quis irure cupidatat duis mollit laborum ex tempor consequat veniam quis nulla. Ipsum nisi sit nisi nostrud ex dolore magna ex veniam nulla. Est labore dolore reprehenderit ut qui. Proident ullamco consequat consequat enim proident culpa commodo dolor dolore.
 
                                 Occaecat cupidatat proident sit irure tempor proident do et excepteur Lorem ex exercitation. Consequat dolore duis reprehenderit velit reprehenderit pariatur consequat aliqua nulla sint. Eu esse veniam amet pariatur anim deserunt consectetur velit amet pariatur magna et nostrud. Eu qui irure aliqua nostrud. Dolor excepteur cupidatat fugiat consectetur dolore occaecat. Laborum deserunt irure excepteur mollit aliquip excepteur eu aliquip eiusmod id laboris. Elit laborum commodo velit nisi quis ullamco fugiat sunt est veniam tempor proident.
@@ -55,6 +55,8 @@ export const Detalles = () => {
                                 Proident eiusmod officia tempor laboris. Tempor nostrud nisi nulla elit veniam officia veniam officia qui sint ullamco dolore quis. Mollit velit nisi sit excepteur Lorem nostrud consectetur pariatur deserunt. Reprehenderit velit cillum occaecat cillum.
                                 Magna aliquip anim consequat mollit incididunt cupidatat Lorem nisi nisi. Magna est excepteur officia et sit laboris non amet veniam irure id enim velit minim. Minim excepteur voluptate irure ullamco consectetur. Lorem voluptate fugiat eiusmod excepteur qui officia. Amet cupidatat esse do culpa. Nisi exercitation excepteur consequat fugiat deserunt sint.
                             </p>
+                            </div>
+                          
 
 
                         </div>
