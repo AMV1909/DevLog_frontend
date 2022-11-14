@@ -20,3 +20,11 @@ export const getTypeUserRequest = async () => {
         }
     }).then((res) => res.data);
 };
+
+export const getNameUserRequest = async () => {
+    return await axios.get(`${backend}/users/name`, {
+        headers: {
+            "Authorization": localStorage.getItem("Authorization")
+        }
+    }).then((res) => res.data);
+};

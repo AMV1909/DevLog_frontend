@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getTypeUserRequest } from '../api/users';
+import { getTypeUserRequest, getNameUserRequest } from '../api/users';
 
 export const Navbar = () => {
   const [typeUser, setTypeUser] = useState(false);
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     getTypeUserRequest().then((response) => {
@@ -21,6 +22,10 @@ export const Navbar = () => {
         default: window.location.href = "/login";
           break;
       }
+    })
+
+    getNameUserRequest().then((response) => {
+      setUser(response);
     })
   }, [])
 
@@ -65,7 +70,8 @@ export const Navbar = () => {
                   <i className="bi bi-person-fill IconNav"> <a class="texto"></a> </i>
                 </a>
                 <ul className="dropdown-menu a" aria-labelledby="navbarDropdownMenuLink">
-                  <li> <button className='dropdown-item texto' onClick={handleLogout}>Cerrar Sesión</button>  </li>
+                  <li><h4 className='text-center texto'>{user}</h4></li>
+                  <li> <button className='dropdown-item text-center texto' onClick={handleLogout}>Cerrar Sesión</button>  </li>
                 </ul>
               </li>
               <li className="nav-item" >

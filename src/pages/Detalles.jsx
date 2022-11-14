@@ -38,27 +38,14 @@ export const Detalles = () => {
                         </div>
                     </div>
 
-                    <div >
+                    <div className='descContent'>
                         <div class="p-3 border bg-light cardDetalles2">
 
-                            <h1>Descripcion</h1>
+                            <h1>Descripción</h1>
                             <hr />
-                            <div className='descrip'>
-                            <p >
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, architecto cumque rerum quasi quam assumenda eaque officia similique quidem dolor provident possimus quae a, laborum animi? Quidem debitis dolorem modi.
-                                Enim quis irure cupidatat duis mollit laborum ex tempor consequat veniam quis nulla. Ipsum nisi sit nisi nostrud ex dolore magna ex veniam nulla. Est labore dolore reprehenderit ut qui. Proident ullamco consequat consequat enim proident culpa commodo dolor dolore.
-
-                                Occaecat cupidatat proident sit irure tempor proident do et excepteur Lorem ex exercitation. Consequat dolore duis reprehenderit velit reprehenderit pariatur consequat aliqua nulla sint. Eu esse veniam amet pariatur anim deserunt consectetur velit amet pariatur magna et nostrud. Eu qui irure aliqua nostrud. Dolor excepteur cupidatat fugiat consectetur dolore occaecat. Laborum deserunt irure excepteur mollit aliquip excepteur eu aliquip eiusmod id laboris. Elit laborum commodo velit nisi quis ullamco fugiat sunt est veniam tempor proident.
-
-                                Duis non est veniam aliquip aliqua sit minim exercitation. Sunt elit nostrud cupidatat reprehenderit sit do qui deserunt voluptate est quis magna exercitation. Ut et velit ea amet. Cillum occaecat consequat pariatur nisi deserunt sit nisi magna.
-
-                                Proident eiusmod officia tempor laboris. Tempor nostrud nisi nulla elit veniam officia veniam officia qui sint ullamco dolore quis. Mollit velit nisi sit excepteur Lorem nostrud consectetur pariatur deserunt. Reprehenderit velit cillum occaecat cillum.
-                                Magna aliquip anim consequat mollit incididunt cupidatat Lorem nisi nisi. Magna est excepteur officia et sit laboris non amet veniam irure id enim velit minim. Minim excepteur voluptate irure ullamco consectetur. Lorem voluptate fugiat eiusmod excepteur qui officia. Amet cupidatat esse do culpa. Nisi exercitation excepteur consequat fugiat deserunt sint.
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem inventore sunt laboriosam, voluptate cupiditate corrupti earum mollitia excepturi sapiente repudiandae quasi labore minima. Iure nihil ut deleniti quam minima nemo dolore illo illum consequatur hic, harum facere, minus ad dicta quod libero perspiciatis molestiae? Cumque eum quo obcaecati deserunt eveniet eos, voluptate inventore ad deleniti nulla doloremque sit, ipsa, rerum dolorum delectus? Facere, tempora? Eius saepe eos fugiat iste facere adipisci, fuga nam dignissimos deserunt optio nostrum expedita odio officiis veritatis natus voluptatibus alias impedit harum rem. Sit cum totam, non officia, dolore consequatur est dicta voluptatum nihil harum perspiciatis in consectetur dolores voluptas minima dolorum saepe ut quis. Similique nostrum blanditiis perferendis, accusamus corrupti officiis maiores incidunt expedita nobis sequi sunt fuga veritatis provident nemo quos molestias quia voluptas iusto in eos. Aspernatur deserunt voluptatibus necessitatibus alias quam quibusdam illo earum ullam id officia labore, ad tempora beatae officiis libero dolor quis nesciunt magnam quia. Vel, laudantium. Corporis iusto, enim maiores quaerat eius recusandae? Consequatur hic repellendus magnam delectus blanditiis eligendi minima rem ea reiciendis eos quae iure non, optio impedit neque excepturi earum quia eaque sed esse odio corrupti perferendis enim. Velit pariatur perspiciatis, deleniti labore mollitia aperiam.
                             </p>
-                            </div>
-                          
-
-
                         </div>
                     </div>
 
