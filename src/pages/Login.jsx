@@ -14,24 +14,17 @@ export const Login = () => {
     const email = document.getElementById("exampleDropdownFormEmail1").value;
     const password = document.getElementById("exampleDropdownFormPassword1").value;
 
-    await loginRequest(email, password).then((response) => {
-      if (response.token) {
+    await loginRequest(email, password)
+      .then((response) => {
         localStorage.setItem("Authorization", response.token);
         window.location.href = "/";
-      } else {
+      })
+      .catch((err) => {
         setError({
           show: true,
-          text: response.err
+          text: err.response.data.err
         })
-
-        setTimeout(() => {
-          setError({
-            show: false,
-            text: ""
-          })
-        }, 5000);
-      }
-    });
+      })
   }
 
   return (

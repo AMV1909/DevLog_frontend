@@ -1,25 +1,22 @@
 import { backend } from "./backend"
+import axios from "axios"
 
 export const getUsersRequest = async () => {
-    return await fetch(`${backend}/users`)
+    return await axios.get(`${backend}/users`).then((res) => res.data);
 };
 
 export const registerUserRequest = async (formData) => {
-    return await fetch(`${backend}/users`, {
-        method: "POST",
+    return await axios.post(`${backend}/users`, formData, {
         headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-    }).then((res) => res.json());
+            "Content-Type": "application/json"
+        }
+    }).then((res) => res.data);
 };
 
 export const getTypeUserRequest = async () => {
-    return await fetch(`${backend}/users/type`, {
-        method: "GET",
+    return await axios.get(`${backend}/users/type`, {
         headers: {
-            "Content-Type": "application/json",
             "Authorization": localStorage.getItem("Authorization")
-        },
-    }).then((res) => res.json());
+        }
+    }).then((res) => res.data);
 };
