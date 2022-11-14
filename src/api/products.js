@@ -34,3 +34,11 @@ export const deleteProductRequest = async (id) => {
         }
     }).then((res) => res.data);
 };
+
+export const getThreeProductsRequest = async () => {
+    return await axios.get(`${backend}/productos/three`).then((res) => res.data);
+};
+
+export const getTenProductsRequest = async () => {
+    return await axios.get(`${backend}/productos/ten`).then((res) => res.data);
+};

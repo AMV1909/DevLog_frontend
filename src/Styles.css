@@ -346,3 +346,9 @@ input::-webkit-inner-spin-button {
 .descContent {
   margin-bottom: 50px;
 }
+
+.body-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
