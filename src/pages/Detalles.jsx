@@ -9,30 +9,16 @@ export const Detalles = () => {
 
             <div class="container overflow-hidden">
                 <div class="row gy-5">
-                    <div class="col-6">
-                        <div className='card DetallesImg'>
-                            <div id="carouselExampleInterval" class="carousel slide sliderimg" data-bs-ride="carousel">
-                                <div class="carousel-inner sliderimg">
-                                    <div class="carousel-item active" data-bs-interval="10000">
-                                        <img src="https://qph.cf2.quoracdn.net/main-qimg-1a4bafe2085452fdc55f646e3e31279c-lq" class="d-block w-100" alt="..." />
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="https://qph.cf2.quoracdn.net/main-qimg-1a4bafe2085452fdc55f646e3e31279c-lq" class="d-block w-100" alt="..." />
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://qph.cf2.quoracdn.net/main-qimg-1a4bafe2085452fdc55f646e3e31279c-lq" class="d-block w-100" alt="..." />
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                    <div class="col-6 det">
+                        
+
+                            <div className='marginImg'>
+
+                                <img className='imgProdDetalles' src="https://image.myanimelist.net/ui/5LYzTBVoS196gvYvw3zjwNFr4yljgp5JZKACcUSJ7ZY" class=" w-100" alt="..." />
+
+
                             </div>
-                        </div>
+                        
                     </div>
                     <div class="col-6 cardDetalles">
                         <div class="p-3 border bg-light DetallesInfo cardDetalles">
@@ -45,7 +31,7 @@ export const Detalles = () => {
 
                             <br />
                             <br />
-                            <button type="button" class="btn  btnDetalles"  data-bs-toggle="modal" data-bs-target="#comprar">Comprar</button>
+                            <button type="button" class="btn  btnDetalles" data-bs-toggle="modal" data-bs-target="#comprar">Comprar</button>
                             <button type="button" class="btn  btnDetalles">Agregar al carrito</button>
 
 
