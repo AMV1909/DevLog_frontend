@@ -67,6 +67,16 @@ export const Navbar = () => {
             </ul>
 
             <ul className="navbar-nav ms-auto">
+              <li className='nav-item'>
+
+                <form action='/Busqueda'>
+                  <div>
+                    <input class="form-control" type="search" id="Busqueda" name="q"  />
+                   
+                  </div>
+                </form>
+              </li>
+              
               <li className="nav-item dropdown ">
                 <a className="nav-link dropdown-toggle texto" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="bi bi-person-fill IconNav"> <a class="texto"></a> </i>
