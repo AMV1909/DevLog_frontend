@@ -28,13 +28,15 @@ export const Detalles = () => {
                 <div class="row gy-5">
                     <div class="col-6 det">
 
+                       
+                            <div className='marginImg '>
 
-                        <div className='marginImg'>
-
-                            <img className='imgProdDetalles' src={product.image?.url} alt="" />
+                                <img className='imgProdDetalles' src={product.image?.url} alt="" />
 
 
-                        </div>
+                            </div>
+                       
+
 
                     </div>
                     <div class="col-6 cardDetalles">
@@ -48,8 +50,11 @@ export const Detalles = () => {
 
                             <br />
                             <br />
+                           
                             <button type="button" class="btn  btnDetalles" data-bs-toggle="modal" data-bs-target="#comprar">Comprar</button>
                             <button type="button" class="btn  btnDetalles">Agregar al carrito</button>
+                            
+                            
 
 
                         </div>
