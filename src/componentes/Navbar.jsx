@@ -19,9 +19,11 @@ export const Navbar = () => {
         case "user":
           setTypeUser(false);
           break;
-        default: window.location.href = "/login";
+        default:
           break;
       }
+    }).catch(() => {
+      window.location.href = "/login";
     })
 
     getNameUserRequest().then((response) => {
