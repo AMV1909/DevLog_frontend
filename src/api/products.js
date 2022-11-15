@@ -9,6 +9,14 @@ export const getProductsRequest = async () => {
     }).then((res) => res.data);
 };
 
+export const getOneProductRequest = async (id) => {
+    return await axios.get(`${backend}/producto/${id}`, {
+        headers: {
+            "Authorization": localStorage.getItem("Authorization")
+        }
+    }).then((res) => res.data);
+};
+
 export const createProductRequest = async (formData) => {
     return await axios.post(`${backend}/productos`, formData, {
         headers: {

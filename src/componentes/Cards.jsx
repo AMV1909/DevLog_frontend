@@ -8,6 +8,8 @@ export const Cards = () => {
   useEffect(() => {
     getTenProductsRequest().then((response) => {
       setProducts(response);
+    }).catch((error) => {
+      console.log(error);
     })
   }, [])
 
@@ -22,7 +24,7 @@ export const Cards = () => {
                 <h5 className="card-title">{product.name}</h5>
                 <p className="card-text">{product.shortDescription}</p>
               </div>
-              <Link to={`Detalles`} className="btn btn-outline colorBtnCard">Ver producto</Link>
+              <Link to={`Detalles/${product._id}`} className="btn btn-outline colorBtnCard">Ver producto</Link>
             </div>
           </div>
         ))}

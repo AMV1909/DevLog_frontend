@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { Navbar } from '../componentes/Navbar'
+import { getOneProductRequest } from '../api/products'
+import { useEffect } from 'react'
 
 export const Detalles = () => {
+    const [product, setProduct] = useState({});
+
+    const params = useParams();
+
+    useEffect(() => {
+        const { id } = params;
+
+        getOneProductRequest(id).then((response) => {
+            setProduct(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }, [])
+
     return (
         <>
 
@@ -10,21 +27,21 @@ export const Detalles = () => {
             <div class="container overflow-hidden">
                 <div class="row gy-5">
                     <div class="col-6 det">
-                        
-
-                            <div className='marginImg'>
-
-                                <img className='imgProdDetalles' src="https://image.myanimelist.net/ui/5LYzTBVoS196gvYvw3zjwNFr4yljgp5JZKACcUSJ7ZY" class=" w-100" alt="..." />
 
 
-                            </div>
-                        
+                        <div className='marginImg'>
+
+                            <img className='imgProdDetalles' src={product.image?.url} alt="" />
+
+
+                        </div>
+
                     </div>
                     <div class="col-6 cardDetalles">
                         <div class="p-3 border bg-light DetallesInfo cardDetalles">
-                            <h1>Nombre Producto</h1>
+                            <h1>{product.name}</h1>
                             <hr />
-                            PRECIO $ 1000
+                            PRECIO $ {product.price}
                             <br />
                             <br />
                             Cantidad  <input type="number" id="quantity" name="quantity" min="1" max="1000" />
@@ -44,7 +61,7 @@ export const Detalles = () => {
                             <h1>Descripción</h1>
                             <hr />
                             <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem inventore sunt laboriosam, voluptate cupiditate corrupti earum mollitia excepturi sapiente repudiandae quasi labore minima. Iure nihil ut deleniti quam minima nemo dolore illo illum consequatur hic, harum facere, minus ad dicta quod libero perspiciatis molestiae? Cumque eum quo obcaecati deserunt eveniet eos, voluptate inventore ad deleniti nulla doloremque sit, ipsa, rerum dolorum delectus? Facere, tempora? Eius saepe eos fugiat iste facere adipisci, fuga nam dignissimos deserunt optio nostrum expedita odio officiis veritatis natus voluptatibus alias impedit harum rem. Sit cum totam, non officia, dolore consequatur est dicta voluptatum nihil harum perspiciatis in consectetur dolores voluptas minima dolorum saepe ut quis. Similique nostrum blanditiis perferendis, accusamus corrupti officiis maiores incidunt expedita nobis sequi sunt fuga veritatis provident nemo quos molestias quia voluptas iusto in eos. Aspernatur deserunt voluptatibus necessitatibus alias quam quibusdam illo earum ullam id officia labore, ad tempora beatae officiis libero dolor quis nesciunt magnam quia. Vel, laudantium. Corporis iusto, enim maiores quaerat eius recusandae? Consequatur hic repellendus magnam delectus blanditiis eligendi minima rem ea reiciendis eos quae iure non, optio impedit neque excepturi earum quia eaque sed esse odio corrupti perferendis enim. Velit pariatur perspiciatis, deleniti labore mollitia aperiam.
+                                {product.description}
                             </p>
                         </div>
                     </div>
