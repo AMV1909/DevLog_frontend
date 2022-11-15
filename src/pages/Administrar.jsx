@@ -180,7 +180,7 @@ export const Administrar = () => {
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => clearForm()}>Salir</button>
                                     <button type="submit" class="btn btn-primary">{action}</button>
                                 </div>
 
