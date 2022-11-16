@@ -87,30 +87,36 @@ export const Detalles = () => {
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Comprar Producto</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
 
                                     <form>
                                         <div class="mb-3">
-                                            <label htmlFor="exampleInputEmail1" class="form-label">Numero de Tarjeta</label>
-                                            <input type="Numero" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                            <label htmlFor="Direccion" class="form-label">Direccion del Pedido</label>
+                                            <input type="text" class="form-control" id="DireccionPedido" aria-describedby="DireccionHelp" />
+                                            <div id="emailHelp" class="form-text">Mire dos veces antes de confirmar el pago</div>
                                         </div>
 
 
                                         <div class="mb-3">
-                                            <label htmlFor="exampleInputPropietario1" class="form-label">Nombre del Propietario</label>
-                                            <input type="Numero" class="form-control" id="exampleInputPropietario1" aria-describedby="emailHelp" />
+                                            <label htmlFor="exampleInputPropietario1" class="form-label">Nombre del Destinatario</label>
+                                            <input type="text" class="form-control" id="exampleInputPropietario1" aria-describedby="emailHelp" />
                                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                         </div>
 
-                                        <div>
-                                            <label for="startDate">Fecha:</label>
-                                            <input type="month" name="mes" min="2020-01" max="" value="2022-01" />
+                                        <div className='continuarPago'>
+                                            confirmar compra de {product.name} por un total de $ {total} ? 
+                                        </div>
+
+                                        <div className='continuarPago'>
+                                        <button type="button " class="btn btnDetalles2">Continuar con el Pago</button>
+
+                                        
 
                                         </div>
+                                        
 
                                     </form>
                                 </div>

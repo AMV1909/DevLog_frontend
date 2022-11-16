@@ -27,6 +27,7 @@ export const Carrito = () => {
                                     </div>
 
                                     <hr />
+
                                 </div>
                             </div>
                         </div>
