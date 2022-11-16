@@ -156,7 +156,10 @@
   background-color: #5a4294;
   color: white;
 }
-
+.btnDetalles2:hover {
+  background-color: #5a4294;
+  color: white;
+}
 .colorBtnCard:hover {
   background-color: #5a4294;
   color: white;

@@ -127,7 +127,7 @@ export const Detalles = () => {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                                    <button type="button" class="btn btn-primary">Añadir</button>
+                                   
                                 </div>
                             </div>
                         </div>
