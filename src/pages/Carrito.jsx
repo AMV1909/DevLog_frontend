@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navbar } from '../componentes/Navbar'
-import { getCartRequest } from '../api/cart'
+import { getCartRequest, deleteProductFromCartRequest } from '../api/cart'
 import { useEffect } from 'react';
 
 export const Carrito = () => {
@@ -17,7 +17,11 @@ export const Carrito = () => {
     }, [])
 
     const handleDeleteFromCart = (id) => {
-
+        deleteProductFromCartRequest(id).then(() => {
+            window.location.reload();
+        }).catch((error) => {
+            console.log(error);
+        })
     }
 
     return (
