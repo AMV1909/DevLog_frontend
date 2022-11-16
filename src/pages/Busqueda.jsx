@@ -10,7 +10,7 @@ export const Busqueda = () => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        const search  = searchParams.get("search");
+        const search = searchParams.get("search");
 
         searchProductsRequest(search).then((response) => {
             setProducts(response);
@@ -26,39 +26,37 @@ export const Busqueda = () => {
 
             <div className="container ">
                 <div className="row   cotenedorbusqueda">
-                    <div class="card   c">
-                        <div class="row g-0">
-                            <div class="col-md-4 ">
-                                <img className='imgBusqueda' src="https://qph.cf2.quoracdn.net/main-qimg-1a4bafe2085452fdc55f646e3e31279c-lq" class="img-fluid rounded-start cardCarrito" alt="..." />
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nombre del Producto</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, culpa sunt possimus, hic at doloribus porro, in harum deleniti minus eligendi quo ullam necessitatibus! Quaerat possimus quasi nisi earum explicabo?</p>
-                                    <p class="card-text"> Precio : 00000</p>
-                                    
-                                   
-                                    <hr />
-                                    <Link to={`Detalles/`} className="btn btn-outline colorBtnCard">Ver producto</Link>
+                    {products.length > 0 ? (
+                        products.map((product) => (
+                            <div class="card   c">
+                                <div class="row g-0">
+                                    <div class="col-md-4 ">
+                                        <img className='imgBusqueda' src={product.image.url} class="img-fluid rounded-start cardCarrito" alt="..." />
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{product.name}</h5>
+                                            <p class="card-text">{product.description}</p>
+                                            <p class="card-text"> Precio : {product.price}</p>
 
+
+                                            <hr />
+                                            <Link to={`/Detalles/${product._id}`} className="btn btn-outline colorBtnCard">Ver producto</Link>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        ))
+                    ) : (
+                        <div className="col-12 card mt-5">
+                            <h1 className='text-center'>No se encontraron productos</h1>
                         </div>
-                    </div>
-
-                  
-                    
-
-                    
-
-                    
-
-
-                    
+                    )}
                 </div>
 
-                
-                
+
+
             </div>
         </>
     )
