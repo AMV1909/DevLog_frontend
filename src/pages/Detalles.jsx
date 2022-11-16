@@ -111,6 +111,11 @@ export const Detalles = () => {
                                         </div>
 
                                         <div className='continuarPago'>
+                                        <input class="form-check-input" type="checkbox" name="type" ></input>
+                                        <label className="form-check-label mx-2" for="flexCheckDefault" >Utilizar sus puntos</label>
+                                        </div>
+                                        <div className='continuarPago'>
+                                        
                                         <button type="button " class="btn btnDetalles2">Continuar con el Pago</button>
 
                                         
