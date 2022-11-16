@@ -17,7 +17,7 @@ export const Carrito = () => {
     }, [])
 
     const handleDeleteFromCart = (id) => {
-        
+
     }
 
     return (
@@ -52,63 +52,60 @@ export const Carrito = () => {
                                         </div>
                                     </div>
                                 ))}
-
                                 <button className='btnCarrito btn btn-outline' data-bs-toggle="modal" data-bs-target="#comprar" >Commprar todo el carrito</button>
                             </>
                         ) : (
                             <div className='text-center'>
                                 <h1>No hay productos en el carrito</h1>
+                                <hr />
                             </div>
                         )}
 
 
-                        <div class="modal fade" id="comprar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
+                    <div class="modal fade" id="comprar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
 
-                                        <form>
-                                            <div class="mb-3">
-                                                <label htmlFor="exampleInputEmail1" class="form-label">Numero de Tarjeta</label>
-                                                <input type="Numero" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                                            </div>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label htmlFor="exampleInputEmail1" class="form-label">Numero de Tarjeta</label>
+                                            <input type="Numero" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                        </div>
 
 
-                                            <div class="mb-3">
-                                                <label htmlFor="exampleInputPropietario1" class="form-label">Nombre del Propietario</label>
-                                                <input type="Numero" class="form-control" id="exampleInputPropietario1" aria-describedby="emailHelp" />
-                                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                                            </div>
+                                        <div class="mb-3">
+                                            <label htmlFor="exampleInputPropietario1" class="form-label">Nombre del Propietario</label>
+                                            <input type="Numero" class="form-control" id="exampleInputPropietario1" aria-describedby="emailHelp" />
+                                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                        </div>
 
-                                            <div>
-                                                <label for="startDate">Fecha:</label>
-                                                <input type="month" name="mes" min="2020-01" max="" value="2022-01" />
+                                        <div>
+                                            <label for="startDate">Fecha:</label>
+                                            <input type="month" name="mes" min="2020-01" max="" value="2022-01" />
 
-                                            </div>
+                                        </div>
 
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                                        <button type="button" class="btn btn-primary">Añadir</button>
-                                    </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                                    <button type="button" class="btn btn-primary">Añadir</button>
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
 
             </div>
 
-
-
+        </div>
         </>
     )
 }
