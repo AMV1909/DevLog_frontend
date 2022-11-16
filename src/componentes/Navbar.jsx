@@ -71,8 +71,7 @@ export const Navbar = () => {
 
                 <form action='/Busqueda'>
                   <div>
-                    <input class="form-control" type="search" id="Busqueda" name="q"  />
-                   
+                    <input class="form-control" type="search" id="Busqueda" name="search"  />
                   </div>
                 </form>
               </li>

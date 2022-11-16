@@ -50,3 +50,7 @@ export const getThreeProductsRequest = async () => {
 export const getTenProductsRequest = async () => {
     return await axios.get(`${backend}/productos/ten`).then((res) => res.data);
 };
+
+export const searchProductsRequest = async (search) => {
+    return await axios.get(`${backend}/productos/search/${search}`).then((res) => res.data);
+};

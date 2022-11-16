@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Navbar } from '../componentes/Navbar'
 import { getOneProductRequest } from '../api/products'
+import { addProductToCartRequest } from '../api/cart'
 import { useEffect } from 'react'
 
 export const Detalles = () => {
     const [product, setProduct] = useState({});
+    const [amount, setAmount] = useState(1);
+    const total = product.price * amount;
 
     const params = useParams();
 
@@ -18,6 +21,16 @@ export const Detalles = () => {
             console.log(error);
         })
     }, [])
+
+    const handleAddToCart = () => {
+        const productCart = { product, amount, total };
+
+        addProductToCartRequest(productCart).then(() => {
+            alert("Producto agregado al carrito");
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
 
     return (
         <>
@@ -43,16 +56,12 @@ export const Detalles = () => {
                         <div class="p-3 border bg-light DetallesInfo cardDetalles">
                             <h1>{product.name}</h1>
                             <hr />
-                            PRECIO $ {product.price}
-                            <br />
-                            <br />
-                            Cantidad  <input type="number" id="quantity" name="quantity" min="1" max="1000" />
-
-                            <br />
-                            <br />
+                            <p>PRECIO $ {product.price}</p>
+                            <p>Cantidad  <input type="number" id="quantity" name="quantity" min="1" max="1000" defaultValue={amount} onChange={(e) => setAmount(e.target.value)} /></p>
+                            <p>Total $ {total}</p>
                            
                             <button type="button" class="btn  btnDetalles" data-bs-toggle="modal" data-bs-target="#comprar">Comprar</button>
-                            <button type="button" class="btn  btnDetalles">Agregar al carrito</button>
+                            <button type="button" class="btn  btnDetalles" onClick={() => handleAddToCart()}>Agregar al carrito</button>
                             
                             
 

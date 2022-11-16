@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar } from '../componentes/Navbar'
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { searchProductsRequest } from '../api/products';
 
 export const Busqueda = () => {
+    const [products, setProducts] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        const search  = searchParams.get("search");
+
+        searchProductsRequest(search).then((response) => {
+            setProducts(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }, [])
+
     return (
         <>
             <Navbar />
