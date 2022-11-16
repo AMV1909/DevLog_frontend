@@ -16,3 +16,11 @@ export const addProductToCartRequest = async (productCart) => {
         }
     }).then((res) => res.data);
 };
+
+export const deleteProductFromCartRequest = async (id) => {
+    return await axios.delete(`${backend}/carrito/${id}`, {
+        headers: {
+            "Authorization": localStorage.getItem("Authorization")
+        }
+    }).then((res) => res.data);
+};
