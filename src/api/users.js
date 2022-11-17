@@ -13,24 +13,8 @@ export const registerUserRequest = async (formData) => {
     }).then((res) => res.data);
 };
 
-export const getTypeUserRequest = async () => {
-    return await axios.get(`${backend}/users/type`, {
-        headers: {
-            "Authorization": localStorage.getItem("Authorization")
-        }
-    }).then((res) => res.data);
-};
-
-export const getNameUserRequest = async () => {
-    return await axios.get(`${backend}/users/name`, {
-        headers: {
-            "Authorization": localStorage.getItem("Authorization")
-        }
-    }).then((res) => res.data);
-};
-
-export const getUserPointsRequest = async () => {
-    return await axios.get(`${backend}/users/points`, {
+export const getuserInfoRequest = async () => {
+    return await axios.get(`${backend}/users/info`, {
         headers: {
             "Authorization": localStorage.getItem("Authorization")
         }

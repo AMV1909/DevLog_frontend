@@ -41,7 +41,9 @@ const CheckoutForm = ({ cart }) => {
                     window.location.href = '/';
                 })
         }).catch((error) => {
-            console.log(error)
+            setLoading(false)
+            alert('Error al realizar el pago');
+            window.location.reload();
         })
 
         setLoading(false)
@@ -94,7 +96,8 @@ export const Carrito = () => {
         getCartRequest().then((response) => {
             setCart(response);
         }).catch((error) => {
-            console.log(error);
+            alert('Error al obtener los productos del carrito');
+            window.location.reload();
         })
     }, [])
 
@@ -102,7 +105,8 @@ export const Carrito = () => {
         deleteProductFromCartRequest(id).then(() => {
             window.location.reload();
         }).catch((error) => {
-            console.log(error);
+            alert('Error al eliminar el producto del carrito');
+            window.location.reload();
         })
     }
 

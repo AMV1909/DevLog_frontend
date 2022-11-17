@@ -40,7 +40,9 @@ const CheckoutForm = ({ product, amount, total }) => {
                     window.location.href = '/';
                 })
         }).catch((error) => {
-            console.log(error)
+            setLoading(false)
+            alert('Error al realizar el pago');
+            window.location.reload();
         })
 
         setLoading(false)
@@ -98,7 +100,8 @@ export const Detalles = () => {
         getOneProductRequest(id).then((response) => {
             setProduct(response);
         }).catch((error) => {
-            console.log(error);
+            alert('Error al obtener el producto');
+            window.location.reload();
         })
     }, [])
 
@@ -108,7 +111,8 @@ export const Detalles = () => {
         addProductToCartRequest(productCart).then(() => {
             alert("Producto agregado al carrito");
         }).catch((error) => {
-            console.log(error);
+            alert("Error al agregar el producto al carrito");
+            window.location.reload();
         })
     }
 

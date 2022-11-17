@@ -1,38 +1,33 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getTypeUserRequest, getNameUserRequest, getUserPointsRequest } from '../api/users';
+import { getuserInfoRequest } from '../api/users';
 
 export const Navbar = () => {
   const [typeUser, setTypeUser] = useState(false);
   const [mantenimiento, setMantenimiento] = useState(false);
+  const [pedidos, setPedidos] = useState(false);
   const [user, setUser] = useState('');
   const [points, setPoints] = useState(0);
 
   useEffect(() => {
-    getTypeUserRequest().then((response) => {
-      switch (response) {
-        case "admin":
+    // Obtener la información del usuario y setearla comprobando el tipo de usuaario
+    getuserInfoRequest().then((response) => {
+      switch (response.type) {
+        case 'admin':
           setMantenimiento(true);
+          setPedidos(true);
           break;
-        case "vendedor":
+        case 'vendedor':
           setTypeUser(true);
           break;
         default:
           break;
       }
-    }).catch(() => {
-      window.location.href = "/login";
-    })
-
-    getNameUserRequest().then((response) => {
-      setUser(response);
-    })
-
-    getUserPointsRequest().then((response) => {
-      setPoints(response);
-    })
-  }, [])
+      setUser(response.name);
+      setPoints(response.points);
+    });
+  }, [typeUser])
 
   const handleLogout = () => {
     localStorage.removeItem("Authorization");
@@ -71,6 +66,12 @@ export const Navbar = () => {
               {mantenimiento ? (
                 <li className="nav-item">
                   <Link id='mantenimiento' className="nav-link texto" to="/Mantenimiento">Mantenimiento</Link>
+                </li>
+              ) : null}
+
+              {pedidos ? (
+                <li className="nav-item">
+                  <Link id='pedidos' className="nav-link texto" to="/Pedidos">Pedidos</Link>
                 </li>
               ) : null}
             </ul>
