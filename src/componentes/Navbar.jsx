@@ -13,7 +13,6 @@ export const Navbar = () => {
     getTypeUserRequest().then((response) => {
       switch (response) {
         case "admin":
-          setTypeUser(true);
           setMantenimiento(true);
           break;
         case "vendedor":
