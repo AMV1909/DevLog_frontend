@@ -22,10 +22,11 @@ export const Carousel = () => {
         <div class="carousel-inner">
           {products.map((product, index) => {
             return (
-              <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
+              <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
                 <img src={product.image.url} class="d-block w-100" alt="..." />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>{product.name}</h5>
+                <div className="carousel-caption d-none d-md-block colorDes mx-auto">
+                  <h5 >{product.name}</h5>
+                  <br />
                   <p>{product.shortDescription}</p>
                 </div>
               </div>

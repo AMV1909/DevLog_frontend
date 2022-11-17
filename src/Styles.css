@@ -400,3 +400,15 @@ input::-webkit-inner-spin-button {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
 }
+
+.colorDes{
+  background-color: black;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.colorDes h5,
+.colorDes p {
+  display: inline-block;
+  box-sizing: border-box;
+}
