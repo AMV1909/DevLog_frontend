@@ -26,9 +26,7 @@ export const Monitorear = () => {
                                         <label class="input-group-text" for="inputGroupSelect01">Productos </label>
                                         <select class="form-select" id="inputGroupSelect01">
                                             <option selected>Seleccionar pedido</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="1">Primer pedido</option>
                                         </select>
                                     </div>
 

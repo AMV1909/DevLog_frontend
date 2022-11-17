@@ -8,6 +8,7 @@ import { Carrito } from './pages/Carrito';
 import { Administrar } from './pages/Administrar';
 import { Monitorear } from './pages/Monitorear';
 import { Busqueda } from './pages/Busqueda';
+import { Mantenimiento } from './pages/Mantenimiento';
 
 export const App = () => {
   return (
@@ -24,6 +25,8 @@ export const App = () => {
         <Route path="/Administrar" element={<Administrar />} />
         <Route path="/Monitorear" element={<Monitorear />} />
         <Route path="/Busqueda" element={<Busqueda />} />
+        <Route path="/Mantenimiento" element={<Mantenimiento />} />
+        <Route path="*" element={<h1>404: Not Found</h1>} />
 
       </Routes>
     </Router>

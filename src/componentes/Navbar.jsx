@@ -5,6 +5,7 @@ import { getTypeUserRequest, getNameUserRequest } from '../api/users';
 
 export const Navbar = () => {
   const [typeUser, setTypeUser] = useState(false);
+  const [mantenimiento, setMantenimiento] = useState(false);
   const [user, setUser] = useState('');
 
   useEffect(() => {
@@ -12,12 +13,10 @@ export const Navbar = () => {
       switch (response) {
         case "admin":
           setTypeUser(true);
+          setMantenimiento(true);
           break;
         case "vendedor":
           setTypeUser(true);
-          break;
-        case "user":
-          setTypeUser(false);
           break;
         default:
           break;
@@ -43,7 +42,7 @@ export const Navbar = () => {
         <div className="container-fluid">
 
           <Link className="navbar-brand texto" to="/">
-            <img  className='logo'  src="../Loguito.png" alt="logo" />
+            <img className='logo' src="../Loguito.png" alt="logo" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -64,6 +63,12 @@ export const Navbar = () => {
                   <Link id='admin' className="nav-link texto" to="/Administrar">Administrar</Link>
                 </li>
               ) : null}
+
+              {mantenimiento ? (
+                <li className="nav-item">
+                  <Link id='mantenimiento' className="nav-link texto" to="/Mantenimiento">Mantenimiento</Link>
+                </li>
+              ) : null}
             </ul>
 
             <ul className="navbar-nav ms-auto">
@@ -71,11 +76,11 @@ export const Navbar = () => {
 
                 <form action='/Busqueda'>
                   <div>
-                    <input class="form-control" type="search" id="Busqueda" name="search"  />
+                    <input class="form-control" type="search" id="Busqueda" name="search" />
                   </div>
                 </form>
               </li>
-              
+
               <li className="nav-item dropdown ">
                 <a className="nav-link dropdown-toggle texto" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="bi bi-person-fill IconNav"> <a class="texto"></a> </i>

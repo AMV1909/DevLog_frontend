@@ -138,11 +138,12 @@
 }
 
 .btnDetalles {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 65px;
-  width: 60%;
+  width: auto;
   border-color: #5a4294;
   color: rgb(2, 2, 2);
+  white-space: nowrap;
 }
 
 .btnDetalles2{
@@ -390,4 +391,12 @@ input::-webkit-inner-spin-button {
   margin-bottom: 20px;
   justify-content: center;
   display: flex;
+}
+
+.drones {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }
