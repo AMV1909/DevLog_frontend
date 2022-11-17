@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getTypeUserRequest, getNameUserRequest } from '../api/users';
+import { getTypeUserRequest, getNameUserRequest, getUserPointsRequest } from '../api/users';
 
 export const Navbar = () => {
   const [typeUser, setTypeUser] = useState(false);
   const [mantenimiento, setMantenimiento] = useState(false);
   const [user, setUser] = useState('');
+  const [points, setPoints] = useState(0);
 
   useEffect(() => {
     getTypeUserRequest().then((response) => {
@@ -27,6 +28,10 @@ export const Navbar = () => {
 
     getNameUserRequest().then((response) => {
       setUser(response);
+    })
+
+    getUserPointsRequest().then((response) => {
+      setPoints(response);
     })
   }, [])
 
@@ -86,7 +91,7 @@ export const Navbar = () => {
                   <i className="bi bi-person-fill IconNav"> <a class="texto"></a> </i>
                 </a>
                 <ul className="dropdown-menu a" aria-labelledby="navbarDropdownMenuLink">
-                  <li><h4 className='text-center texto'>{user}</h4></li>
+                  <li><h4 className='text-center texto'>{user}({points})</h4></li>
                   <li> <button className='dropdown-item text-center texto' onClick={handleLogout}>Cerrar Sesión</button>  </li>
                 </ul>
               </li>

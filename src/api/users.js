@@ -28,3 +28,11 @@ export const getNameUserRequest = async () => {
         }
     }).then((res) => res.data);
 };
+
+export const getUserPointsRequest = async () => {
+    return await axios.get(`${backend}/users/points`, {
+        headers: {
+            "Authorization": localStorage.getItem("Authorization")
+        }
+    }).then((res) => res.data);
+};
