@@ -11,8 +11,6 @@ export const Pedidos = () => {
         })
     }, [])
 
-    console.log(pedidos)
-
     return (
         <>
             <Navbar />
