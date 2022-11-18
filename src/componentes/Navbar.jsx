@@ -92,7 +92,7 @@ export const Navbar = () => {
                 </a>
                 <ul className="dropdown-menu a" aria-labelledby="navbarDropdownMenuLink">
                   <li><h4 className='text-center texto'>{user}({points})</h4></li>
-                  <li> <button className='dropdown-item text-center texto' onClick={handleLogout}>Cerrar Sesión</button>  </li>
+                  <li><button className='dropdown-item text-center texto' onClick={handleLogout}>Cerrar Sesión</button></li>
                 </ul>
               </li>
               <li className="nav-item" >
