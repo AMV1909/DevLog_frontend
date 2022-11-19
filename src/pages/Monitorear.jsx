@@ -16,7 +16,7 @@ export const Monitorear = () => {
                             <div class="imgMaps row">
 
                                 <div class="col">
-                                <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Bucaramanga&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a> <a href="https://www.embedgooglemap.net">google map website widget</a></div></div>
+                                    <div style={{width: "100%"}}><iframe width="720" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=7.11676236203049,%20-73.10544006742765+(Devlog)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html"></a></iframe></div>
 
                                 </div>
 

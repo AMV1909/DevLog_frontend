@@ -446,3 +446,7 @@ input::-webkit-inner-spin-button {
   margin: auto;
 }
 
+.pedido {
+  width: auto !important;
+  margin: 20px auto;
+}
