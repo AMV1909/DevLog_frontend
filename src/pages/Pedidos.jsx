@@ -15,24 +15,24 @@ export const Pedidos = () => {
         <>
             <Navbar />
 
-          
+            
 
 
-            <div className="container containerPedido">
-                <div className="row ">
+            <div className="container containerPedido ">
+                <div className="row">
                     {pedidos.map((pedido) => (
-                        <div className="col-12 card mt-5 colPedido ">
-                            <h1 className='text-center'>Pedido</h1>
+                        <div className="col-12 card mt-5">
+                            <h2 className='text-center'>Pedido</h2>
                             <hr />
                             <div>
-                                <h5>Nombre del destinatario: {pedido.name}</h5>
-                                <h5>Correo: {pedido.email}</h5>
-                                <h5>Direccion: {pedido.address}</h5>
+                    
+                            <h6 >Nombre del destinatario: {pedido.name}</h6>
+                            <h6 >Apellido: {pedido.lastName}</h6>
+                            <h6 >Email: {pedido.email}</h6>
+                            <h6 >Direccion: {pedido.address}</h6>
                             </div>
+                            <h4  className='text-center totalPedido'>total: {pedido.total}</h4> 
 
-                            <h4 className='totalPedido'>Total: ${pedido.total}</h4>
-                            
-                           
                         </div>
                     ))}
                 </div>

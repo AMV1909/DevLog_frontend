@@ -414,11 +414,9 @@ input::-webkit-inner-spin-button {
 }
 
 .containerPedido{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
+
   height: 100vh;
-  width: fit-content;
   border-radius: 10px;
 }
 .colPedido{
