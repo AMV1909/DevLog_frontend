@@ -26,6 +26,8 @@ export const Navbar = () => {
       }
       setUser(response.name);
       setPoints(response.points);
+    }).catch((error) => {
+      window.location.href = '/login';
     });
   }, [typeUser])
 
