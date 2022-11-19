@@ -21,7 +21,7 @@ export const Pedidos = () => {
             <div className="container containerPedido ">
                 <div className="row">
                     {pedidos.map((pedido) => (
-                        <div className="col-12 card mt-5">
+                        <div className="col-12 card mt-5 colPedido ">
                             <h2 className='text-center'>Pedido</h2>
                             <hr />
                             <div>
