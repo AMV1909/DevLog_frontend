@@ -432,3 +432,17 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   display: flex;
 }
+
+.colorBtnCarousel{
+  
+ background-color: #7455bec2;
+  color: white;
+  border-color: rgb(255, 255, 255);
+}
+
+.imgCarrito{
+  width: 70%;
+  height: 100%;
+  margin: auto;
+}
+

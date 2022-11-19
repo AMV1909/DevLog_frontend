@@ -30,7 +30,7 @@ export const Pedidos = () => {
                                 <h5>Direccion: {pedido.address}</h5>
                             </div>
 
-                            <h4 className='totalPedido'>Total: {pedido.total}</h4>
+                            <h4 className='totalPedido'>Total: ${pedido.total}</h4>
                             
                            
                         </div>
