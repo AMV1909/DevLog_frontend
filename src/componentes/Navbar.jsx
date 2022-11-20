@@ -11,7 +11,6 @@ export const Navbar = () => {
   const [points, setPoints] = useState(0);
 
   useEffect(() => {
-    // Obtener la información del usuario y setearla comprobando el tipo de usuaario
     getuserInfoRequest().then((response) => {
       switch (response.type) {
         case 'admin':

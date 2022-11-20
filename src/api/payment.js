@@ -16,7 +16,7 @@ export const payment = async (id, product, amount, total, formData) => {
 }
 
 export const paymentMany = async (id, cart, total, formData) => {
-    return await axios.post(`${backend}/paymentMany`, {
+    return await axios.post(`${backend}/payment/Many`, {
         id,
         cart,
         total,

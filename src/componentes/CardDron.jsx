@@ -5,8 +5,8 @@ export function CardDron({ dron, setDrones }) {
         switch (status) {
             case 'En Mantenimiento':
                 return 'bg-warning text-dark'
-            case 'No Disponible':
-                return 'bg-danger'
+            case 'Asignado':
+                return 'bg-success text-white'
             default:
                 return null
         }
