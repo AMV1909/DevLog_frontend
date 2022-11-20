@@ -3,11 +3,13 @@ import { useEffect } from 'react'
 import { Navbar } from '../componentes/Navbar'
 import { getuserInfoRequest } from '../api/users'
 import { getDronRequest, getAssignedDronesRequest, getDronesByUserRequest } from '../api/drones'
+import { Map } from '../componentes/Map'
 
 export const Monitorear = () => {
     const [admin, setAdmin] = useState(false)
     const [drones, setDrones] = useState([])
     const [location, setLocation] = useState({})
+    const [id, setId] = useState(null)
 
     useEffect(() => {
         getuserInfoRequest().then((response) => {
@@ -26,7 +28,7 @@ export const Monitorear = () => {
     }, [admin])
 
     const getDronLocation = async (e) => {
-        const id = e.target.value
+        setLocation({})
 
         if (id) {
             await getDronRequest(id).then((response) => {
@@ -34,6 +36,7 @@ export const Monitorear = () => {
             })
         } else {
             setLocation({})
+            alert('Seleccione un dron')
         }
     }
 
@@ -53,9 +56,12 @@ export const Monitorear = () => {
                                 {drones.length > 0 ? (
                                     <>
                                         {location.latitude ? (
-                                            <div class="col">
-                                                <div style={{ width: "100%" }}><iframe width="720" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={`https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=${location.latitude},%20${location.longitude}+(Devlog)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed`}><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe></div>
-                                            </div>
+                                            <>
+                                                <div class="col">
+                                                    <Map location={{ latitude: location.latitude, longitude: location.longitude }} />
+                                                </div>
+
+                                            </>
                                         ) : (
                                             <div className='col no-map'></div>
                                         )}
@@ -64,12 +70,16 @@ export const Monitorear = () => {
 
                                             <div class="input-group mb-3">
                                                 <label class="input-group-text" for="inputGroupSelect01">Pedidos</label>
-                                                <select class="form-select" id="inputGroupSelect01" onChange={(e) => getDronLocation(e)}>
+                                                <select class="form-select" id="inputGroupSelect01" onChange={(e) => setId(e.target.value)}>
                                                     <option value="">Seleccionar pedido</option>
                                                     {drones.map((dron) => (
                                                         <option value={dron._id}>Dron {dron._id}</option>
                                                     ))}
                                                 </select>
+                                            </div>
+
+                                            <div className='d-flex justify-content-center'>
+                                                <button className='btn btnDetalles px-5' onClick={() => getDronLocation()}>Buscar</button>
                                             </div>
 
                                         </div>
