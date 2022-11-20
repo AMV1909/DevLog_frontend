@@ -54,7 +54,7 @@ export const Monitorear = () => {
                                     <>
                                         {location.latitude ? (
                                             <div class="col">
-                                                <div style={{ width: "100%" }}><iframe width="720" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={`https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=${location.latitude},%20${location.longitude}+(Devlog)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed`}><a href="https://www.maps.ie/distance-area-calculator.html"></a></iframe></div>
+                                                <div style={{ width: "100%" }}><iframe width="720" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src={`https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=${location.latitude},%20${location.longitude}+(Devlog)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed`}><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe></div>
                                             </div>
                                         ) : (
                                             <div className='col no-map'></div>
