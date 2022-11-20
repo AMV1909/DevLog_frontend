@@ -48,67 +48,71 @@ export const Pedidos = () => {
 
             <div className="container containerPedido ">
                 <div className="row">
-                    {pedidos.map((pedido) => (
-                        <>
-                            <div className="col-12 card mt-5 colPedido ">
-                                <h2 className='text-center mt-4'>Pedido</h2>
-                                <hr />
-                                <div>
+                    {pedidos.length > 0 ? (
+                        pedidos.map((pedido) => (
+                            <>
+                                <div className="col-12 card mt-5 colPedido ">
+                                    <h2 className='text-center mt-4'>Pedido</h2>
+                                    <hr />
+                                    <div>
 
-                                    <h6 >Destinatario: {pedido.name}</h6>
-                                    <h6 >Email: {pedido.email}</h6>
-                                    <h6 >Direccion: {pedido.address}</h6>
+                                        <h6 >Destinatario: {pedido.name}</h6>
+                                        <h6 >Email: {pedido.email}</h6>
+                                        <h6 >Direccion: {pedido.address}</h6>
 
-                                    <h6 >Productos: </h6>
-                                    <ul>
-                                        {pedido.products.map((product) => (
-                                            <li>
-                                                {product.product.name}
-                                                <ul>
-                                                    <li>Cantidad: {product.amount}</li>
-                                                    <li>Precio: $ {product.product.price}</li>
-                                                    <li>Total: $ {product.product.price * product.amount}</li>
-                                                </ul>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                        <h6 >Productos: </h6>
+                                        <ul>
+                                            {pedido.products.map((product) => (
+                                                <li>
+                                                    {product.product.name}
+                                                    <ul>
+                                                        <li>Cantidad: {product.amount}</li>
+                                                        <li>Precio: $ {product.product.price}</li>
+                                                        <li>Total: $ {product.product.price * product.amount}</li>
+                                                    </ul>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                    </div>
+                                    <h4 className='text-center totalPedido'>Total: $ {pedido.total}</h4>
+
+                                    <button className='btn btn-outline colorBtnCard pedido' data-bs-toggle="modal" data-bs-target="#Drones" onClick={() => getAvailableDrones(pedido)}>Asignar Pedido a Dron</button>
 
                                 </div>
-                                <h4 className='text-center totalPedido'>Total: $ {pedido.total}</h4>
 
-                                <button className='btn btn-outline colorBtnCard pedido' data-bs-toggle="modal" data-bs-target="#Drones" onClick={() => getAvailableDrones(pedido)}>Asignar Pedido a Dron</button>
+                                <div class="modal fade" id="Drones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Asignar Pedido A Drón</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
 
-                            </div>
+                                                {availableDrones.length > 0 ? (
+                                                    <div className='d-flex flex-column justify-content-center'>
+                                                        <select name="dron" id="dron" className='form-control' onChange={handleChange}>
+                                                            <option value="">Seleccionar dron</option>
+                                                            {availableDrones.map((dron) => (
+                                                                <option key={dron._id} value={dron._id}>{dron.name}</option>
+                                                            ))}
+                                                        </select>
 
-                            <div class="modal fade" id="Drones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Asignar Pedido A Drón</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            {availableDrones.length > 0 ? (
-                                                <div className='d-flex flex-column justify-content-center'>
-                                                    <select name="dron" id="dron" className='form-control' onChange={handleChange}>
-                                                        <option value="">Seleccionar dron</option>
-                                                        {availableDrones.map((dron) => (
-                                                            <option key={dron._id} value={dron._id}>{dron.name}</option>
-                                                        ))}
-                                                    </select>
-
-                                                    <button className='btn btn-outline colorBtnCard pedido' onClick={() => assignDron()}>Asignar Pedido</button>
-                                                </div>
-                                            ) : (
-                                                <h3>No hay drones disponibles</h3>
-                                            )}
+                                                        <button className='btn btn-outline colorBtnCard pedido' onClick={() => assignDron()}>Asignar Pedido</button>
+                                                    </div>
+                                                ) : (
+                                                    <h3>No hay drones disponibles</h3>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </>
-                    ))}
+                            </>
+                        ))
+                    ) : (
+                        <h3>No hay pedidos</h3>
+                    )}
                 </div>
             </div>
 
