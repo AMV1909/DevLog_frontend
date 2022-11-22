@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { Navbar } from '../componentes/Navbar'
-import { getuserInfoRequest } from '../api/users'
+import { getUserInfoRequest } from '../api/users'
 import { getDronRequest, getAssignedDronesRequest, getDronesByUserRequest } from '../api/drones'
 import { Map } from '../componentes/Map'
 
@@ -10,9 +10,10 @@ export const Monitorear = () => {
     const [drones, setDrones] = useState([])
     const [location, setLocation] = useState({})
     const [id, setId] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        getuserInfoRequest().then((response) => {
+        getUserInfoRequest().then((response) => {
             setAdmin(response.type === 'admin')
         })
 
@@ -29,6 +30,7 @@ export const Monitorear = () => {
 
     const getDronLocation = async (e) => {
         setLocation({})
+        setLoading(true)
 
         if (id) {
             await getDronRequest(id).then((response) => {
@@ -38,6 +40,8 @@ export const Monitorear = () => {
             setLocation({})
             alert('Seleccione un dron')
         }
+
+        setLoading(false)
     }
 
     return (
@@ -79,7 +83,13 @@ export const Monitorear = () => {
                                             </div>
 
                                             <div className='d-flex justify-content-center'>
-                                                <button className='btn btnDetalles px-5' onClick={() => getDronLocation()}>Buscar</button>
+                                                <button className='btn btnDetalles px-5' onClick={() => getDronLocation()}>
+                                                    {loading ? (
+                                                        <div className="spinner-border text-dark" role="status">
+                                                            <span className="sr-only"></span>
+                                                        </div>
+                                                    ) : 'Buscar'}
+                                                </button>
                                             </div>
 
                                         </div>

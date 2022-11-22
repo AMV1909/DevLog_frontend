@@ -1,8 +1,16 @@
 import { backend } from "./backend";
 import axios from "axios";
 
-export const getProductsRequest = async () => {
-    return await axios.get(`${backend}/productos`, {
+export const getProductsSellerRequest = async () => {
+    return await axios.get(`${backend}/productos/seller`, {
+        headers: {
+            "Authorization": localStorage.getItem("Authorization")
+        }
+    }).then((res) => res.data);
+};
+
+export const getProductsAdminRequest = async () => {
+    return await axios.get(`${backend}/productos/admin`, {
         headers: {
             "Authorization": localStorage.getItem("Authorization")
         }

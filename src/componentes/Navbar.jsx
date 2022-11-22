@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getuserInfoRequest } from '../api/users';
+import { getUserInfoRequest } from '../api/users';
 
 export const Navbar = () => {
   const [typeUser, setTypeUser] = useState(false);
@@ -11,9 +11,10 @@ export const Navbar = () => {
   const [points, setPoints] = useState(0);
 
   useEffect(() => {
-    getuserInfoRequest().then((response) => {
+    getUserInfoRequest().then((response) => {
       switch (response.type) {
         case 'admin':
+          setTypeUser(true);
           setMantenimiento(true);
           setPedidos(true);
           break;

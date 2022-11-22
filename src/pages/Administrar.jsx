@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { Navbar } from '../componentes/Navbar'
-import { getProductsRequest, createProductRequest, updateProductRequest, deleteProductRequest } from '../api/products'
+import { getProductsSellerRequest, getProductsAdminRequest, createProductRequest, updateProductRequest, deleteProductRequest } from '../api/products'
+import { getUserInfoRequest } from '../api/users'
 
 export const Administrar = () => {
     const [action, setAction] = useState('');
@@ -14,16 +15,28 @@ export const Administrar = () => {
         stock: "",
         image: null
     })
+    const [loading, setLoading] = useState(false)
+    const [loadingDelete, setLoadingDelete] = useState(false)
 
     useEffect(() => {
-        getProductsRequest()
-            .then((res) => {
-                setProductos(res)
-            })
-            .catch((err) => {
-                alert(err);
-                window.location.href = "/login"
-            })
+        getUserInfoRequest().then((response) => {
+            switch (response.type) {
+                case 'admin':
+                    getProductsAdminRequest().then((response) => {
+                        setProductos(response)
+                    })
+                    break;
+                case 'vendedor':
+                    getProductsSellerRequest().then((response) => {
+                        setProductos(response)
+                    })
+                    break;
+                default:
+                    break;
+            }
+        }).catch((error) => {
+            window.location.href = '/login';
+        });
     }, [])
 
     const handleSubmit = async (e) => {
@@ -42,6 +55,8 @@ export const Administrar = () => {
     }
 
     const handleCreate = async () => {
+        setLoading(true)
+
         await createProductRequest(formData)
             .then(() => {
                 window.location.href = "/administrar"
@@ -49,6 +64,8 @@ export const Administrar = () => {
             .catch((err) => {
                 console.log(err)
             })
+
+        setLoading(false)
     }
 
     const handleChange = (e) => {
@@ -61,6 +78,8 @@ export const Administrar = () => {
     }
 
     const handleUpdate = async () => {
+        setLoading(true)
+
         await updateProductRequest(formData.id, formData)
             .then(() => {
                 window.location.href = "/administrar"
@@ -68,10 +87,14 @@ export const Administrar = () => {
             .catch((err) => {
                 console.log(err)
             })
+
+        setLoading(false)
     }
 
     const handleDelete = async (id) => {
         if (confirm('¿Estás seguro de eliminar este producto?')) {
+            setLoadingDelete(true)
+
             await deleteProductRequest(id)
                 .then(() => {
                     window.location.href = "/administrar"
@@ -79,6 +102,8 @@ export const Administrar = () => {
                 .catch((err) => {
                     console.log(err)
                 })
+
+            setLoadingDelete(false)
         }
     }
 
@@ -181,7 +206,13 @@ export const Administrar = () => {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => clearForm()}>Salir</button>
-                                    <button type="submit" class="btn btn-primary">{action}</button>
+                                    <button type="submit" className='btn btn-primary'>
+                                        {loading ? (
+                                            <div className="spinner-border text-dark" role="status">
+                                                <span className="sr-only"></span>
+                                            </div>
+                                        ) : action}
+                                    </button>
                                 </div>
 
                             </form>
@@ -216,7 +247,13 @@ export const Administrar = () => {
                                         <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#agregar" onClick={() => {
                                             setProductData(producto)
                                         }}>Editar</button>
-                                        <button className='btn btn-danger' onClick={() => handleDelete(producto._id)}>Eliminar</button>
+                                        <button className='btn btn-danger' onClick={() => handleDelete(producto._id)}>
+                                            {loadingDelete ? (
+                                                <div className="spinner-border text-dark" role="status">
+                                                    <span className="sr-only"></span>
+                                                </div>
+                                            ) : 'Eliminar'}
+                                        </button>
                                     </td>
                                 </tr>
                             ))

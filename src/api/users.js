@@ -13,7 +13,7 @@ export const registerUserRequest = async (formData) => {
     }).then((res) => res.data);
 };
 
-export const getuserInfoRequest = async () => {
+export const getUserInfoRequest = async () => {
     return await axios.get(`${backend}/users/info`, {
         headers: {
             "Authorization": localStorage.getItem("Authorization")
