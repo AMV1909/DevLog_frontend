@@ -111,7 +111,9 @@ export const Pedidos = () => {
                             </>
                         ))
                     ) : (
-                        <h3>No hay pedidos</h3>
+                        <div className='cardNoPedidos'>
+                        <h3 className='text-center'>No hay pedidos</h3>
+                        </div>
                     )}
                 </div>
             </div>
